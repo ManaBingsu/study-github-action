@@ -1,0 +1,22 @@
+# workflow 이름
+name: custom workflow
+# Event trigger, push가 일어날 때 workflow 실행됨
+on: push
+
+# Step들을 담고 있는 그룹
+jobs:
+# Job ID
+  testJob01:
+# Job name
+    name: Hello world action
+# Environment
+# Available OS
+# Linux, macOS, Windows
+    runs-on: ubuntu-latest
+# Step
+    steps:
+# source code 확인
+    - name: checkout source code
+      uses: actions/checkout@master
+    - name: echo hello world
+      run: echo "hello world" 
