@@ -62,7 +62,7 @@ namespace CI
                 Builder.TestFlag++;
                 if (result.FailCount > 0)
                 {
-                    Debug.LogError($"Failed test count : {result.FailCount}");
+                    Debug.LogError($"[{testMode[Builder.TestFlag]}]Failed test count : {result.FailCount}");
                     System.IO.File.WriteAllText($@"{Builder.builderSetting.testLogPath}/{testMode[Builder.TestFlag]}test.log", log.ToString(), Encoding.UTF8);
                     if (Builder.TestFlag > 1 && Builder.builderSetting.postTestOption == BuilderSetting.PostTestOption.CancelBuildWhenFailed)
                     {
@@ -87,7 +87,7 @@ namespace CI
                 if (!result.HasChildren && result.ResultState.Equals("Failed"))
                 {
                     log.Append(
-                        $"[{result.Test.Name}] : {result.ResultState}\n{result.Message}\n");             
+                        $"[{result.FullName}][{result.Test.Name}] : {result.ResultState}\n{result.Message}\n");             
                 }
             }
 

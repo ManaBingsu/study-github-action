@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using UnityEditor;
 using UnityEditor.Build.Reporting;
+using UnityEditor.Callbacks;
 using UnityEngine;
 
 namespace CI
@@ -27,6 +28,7 @@ namespace CI
             set => testFlag = value;
         }
 
+        // This function is testing, Don't use now
         public static void BuildWithCommandLine()
         {
             // Update Resource
@@ -85,7 +87,7 @@ namespace CI
         {
             // Step 0 : Set path
             StringBuilder path = new StringBuilder();
-            path.Append(EditorUtility.SaveFolderPanel("Choose Location of Built Game", "", ""));
+            path.Append(builderSetting.buildPath);
             if (path.Length == 0)
             {
                 return;
@@ -93,7 +95,7 @@ namespace CI
 
             string exStr = extension.ContainsKey(builderSetting.buildTarget) ?
                 extension[builderSetting.buildTarget] : "";
-            path.Append($@"/EditorBuild{exStr}");
+            path.Append($@"/{builderSetting.fileName}{exStr}");
 
             // Gather values from project
             var scenes = EditorBuildSettings.scenes.Where(scene => scene.enabled).Select(s => s.path).ToArray();
@@ -146,6 +148,13 @@ namespace CI
                 }
             }
             return sb.ToString();
+        }
+    
+        [PostProcessBuild]
+        public static void OnPostprocessBuild(BuildTarget target, string pathToBuiltProject)
+        {
+            Debug.Log($"[{target}] Build with test is finished");
+            EditorUtility.RevealInFinder(pathToBuiltProject);
         }
     }
 }

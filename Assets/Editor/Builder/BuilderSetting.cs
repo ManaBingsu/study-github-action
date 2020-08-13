@@ -8,7 +8,7 @@ namespace CI
     [CreateAssetMenu]
     public class BuilderSetting : ScriptableObject
     { 
-        [Header("Custom option")]
+        [Header("Mode")]
         public BuildTarget buildTarget = BuildTarget.StandaloneWindows64;
 
         public enum PostTestOption
@@ -18,7 +18,11 @@ namespace CI
         }
 
         public PostTestOption postTestOption;
+        [Header("File name")]
+        public string fileName;
 
+        [Header("Path")]
+        public string buildPath;
         public string testLogPath;
         public string buildLogPath;
 
@@ -48,29 +52,35 @@ namespace CI
                     target.Build();
 
                 EditorGUILayout.Space();
+                EditorGUILayout.Space();
+                EditorGUILayout.Space();
+
+                if (GUILayout.Button("Set build path"))
+                {
+                    SetPath(ref target.buildPath, "Choose Location of Build Path");
+                }
 
                 if (GUILayout.Button("Set test log path"))
                 {
-                    string selectPath = EditorUtility.SaveFolderPanel("Choose Location of Test Log Path", "", "");
-                    if (selectPath.Length == 0)
-                    {
-                        return;
-                    }
-                    target.testLogPath = selectPath;
-
+                    SetPath(ref target.testLogPath, "Choose Location of Test Log Path");
                 }
 
                 if (GUILayout.Button("Set build log path"))
                 {
-                    string selectPath = EditorUtility.SaveFolderPanel("Choose Location of Build Log Path", "", "");
-                    if (selectPath.Length == 0)
-                    {
-                        return;
-                    }
-                    target.buildLogPath = selectPath;
+                    SetPath(ref target.buildLogPath, "Choose Location of Build Log Path");
                 }
 
                 base.OnInspectorGUI();
+            }
+
+            public void SetPath(ref string path, string selecterMessage)
+            {
+                string selectPath = EditorUtility.SaveFolderPanel(selecterMessage, "", "");
+                if (selectPath.Length == 0)
+                {
+                    return;
+                }
+                path = selectPath;
             }
         }
 #endif
