@@ -1,0 +1,3 @@
+BUILDPATH$$C:\Users\SouthPAW Games\Desktop\hyunseok\Project\study-github-action\Build\win64\skul.exe
+BUILDNAME$$HELLO
+LOGPATH$$C:\Users\SouthPAW Games\Desktop\hyunseok\Project\study-github-action\Build\win64\win64.log

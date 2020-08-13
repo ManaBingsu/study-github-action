@@ -1,0 +1,16 @@
+// 지원 플랫폼 : win64, win32, linux, mac
+// 예시, 순서를 지켜주세요
+// COMPRESSION$$LZ4(압축 유형)
+// PLATFORM$$win64(플랫폼)
+
+COMPRESSION$$LZ4
+PLATFORM$$StandaloneWindows64
+
+//COMPRESSION$$LZ4
+//PLATFORM$$win32
+
+//COMPRESSION$$LZ4
+//PLATFORM$$linux
+
+//COMPRESSION$$LZ4
+//PLATFORM$$mac

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: BuilderSetting
   m_EditorClassIdentifier: 
   buildTarget: 19
-  postTestOption: 0
+  postTestOption: 1
+  testLogPath: C:/Users/SouthPAW Games/Desktop/hyunseok/Project/study-github-action/Build/Editor
+  buildLogPath: C:/Users/SouthPAW Games/Desktop/hyunseok/Project/study-github-action/Build/Editor
   resources:
   - {fileID: 11400000, guid: f333b3de57dc82d489a5fdcaa27f1fa0, type: 2}

@@ -9,8 +9,9 @@ using UnityEngine;
 
 namespace CI
 {
-    public class Builder
+    public static class Builder
     {
+        static string EOL = Environment.NewLine;
         static Dictionary<BuildTarget, string> extension = new Dictionary<BuildTarget, string>()
             {
                 {BuildTarget.StandaloneWindows64, ".exe" },
@@ -29,9 +30,19 @@ namespace CI
         public static void BuildWithCommandLine()
         {
             // Update Resource
-            Resource resource = (Resource)AssetDatabase.LoadAssetAtPath("Assets/Scripts/Resource.asset", typeof(Resource));
-            resource.Load();
-            
+            Resource resource = AssetDatabase.LoadAssetAtPath("Assets/Resources/Resource.asset", typeof(Resource)) as Resource;
+            if (resource != null && resource is Resource)
+            {
+                Console.WriteLine(
+                $"{EOL}" +
+                $"###########################{EOL}" +
+                $"#     Resource loaded     #{EOL}" +
+                $"###########################{EOL}" +
+                $"{EOL}"
+                );
+                resource.Load();
+            }
+
             // Gather values from args
             var options = ArgumentsParser.GetValidatedOptions();
 
@@ -59,8 +70,9 @@ namespace CI
             StdOutReporter.ExitWithResult(result);
         }
 
-        public static void Test()
+        public static void TestBeforeBuild()
         {
+
             // Step 1 : Resource load
             Resource resource = builderSetting.preResources.resources[(int)PreResources.ResourceType.Resource] as Resource;
             resource.Load();
@@ -71,14 +83,17 @@ namespace CI
 
         public static void BuildWithCustomSetting()
         {
+            // Step 0 : Set path
             StringBuilder path = new StringBuilder();
             path.Append(EditorUtility.SaveFolderPanel("Choose Location of Built Game", "", ""));
-
             if (path.Length == 0)
             {
                 return;
             }
-            path.Append($@"/EditorBuild{extension[builderSetting.buildTarget]}");
+
+            string exStr = extension.ContainsKey(builderSetting.buildTarget) ?
+                extension[builderSetting.buildTarget] : "";
+            path.Append($@"/EditorBuild{exStr}");
 
             // Gather values from project
             var scenes = EditorBuildSettings.scenes.Where(scene => scene.enabled).Select(s => s.path).ToArray();
@@ -92,7 +107,11 @@ namespace CI
             };
 
             // Perform build
-            BuildReport buildReport = BuildPipeline.BuildPlayer(buildOptions);
+            BuildReport report = BuildPipeline.BuildPlayer(buildOptions);
+
+            string log = report.summary.result == BuildResult.Succeeded ? MakeBuildLog(true, report) : MakeBuildLog(false, report);
+
+            System.IO.File.WriteAllText($"{path}.log", log, Encoding.UTF8);
             /*
             // Summary
             BuildSummary summary = buildReport.summary;
@@ -101,6 +120,32 @@ namespace CI
             // Result
             BuildResult result = summary.result;
             StdOutReporter.ExitWithResult(result);*/
+        }
+
+        public static string MakeBuildLog(bool isSuceeded, BuildReport report)
+        {
+            StringBuilder sb = new StringBuilder();
+            if (isSuceeded)
+            {
+                sb.Append($"Build succeeded: \n");
+                sb.Append($"start time: {report.summary.buildStartedAt}\n");
+                sb.Append($"end time: {report.summary.buildEndedAt}\n");
+                sb.Append($"total time: {report.summary.totalTime}\n");
+            }
+            else
+            {
+                sb.Append($"Build failed:\n");
+                sb.Append($"start time: {report.summary.buildStartedAt}\n");
+                sb.Append($"end time: {report.summary.buildEndedAt}\n");
+            }
+            for (int i = 0; i < report.steps.Length; i++)
+            {
+                for (int j = 0; j < report.steps[i].messages.Length; j++)
+                {
+                    sb.Append($"{report.steps[i].messages[j].content}\n");
+                }
+            }
+            return sb.ToString();
         }
     }
 }

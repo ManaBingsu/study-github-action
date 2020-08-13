@@ -1,0 +1,2 @@
+BUILDPATH$$C:\Users\SouthPAW Games\Desktop\hyunseok\Project\EdgeOfChristmas_Refactoring\Build\win32\WIN32.exe
+LOGPATH$$C:\Users\SouthPAW Games\Desktop\hyunseok\Project\EdgeOfChristmas_Refactoring\Build\win32\WIN32.log

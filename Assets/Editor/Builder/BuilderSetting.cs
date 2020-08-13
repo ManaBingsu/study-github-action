@@ -8,13 +8,8 @@ namespace CI
     [CreateAssetMenu]
     public class BuilderSetting : ScriptableObject
     { 
-        BuilderSetting()
-        {
-            Builder.builderSetting = this;
-        }
-
         [Header("Custom option")]
-        public BuildTarget buildTarget;
+        public BuildTarget buildTarget = BuildTarget.StandaloneWindows64;
 
         public enum PostTestOption
         {
@@ -24,6 +19,9 @@ namespace CI
 
         public PostTestOption postTestOption;
 
+        public string testLogPath;
+        public string buildLogPath;
+
         [Header("Resources")]
         [Tooltip("Element 0 : Resource")]
         [SerializeField]
@@ -31,6 +29,11 @@ namespace CI
 
         [HideInInspector]
         public PreResources preResources;
+
+        BuilderSetting()
+        {
+            Builder.builderSetting = this;
+        }
 
 #if UNITY_EDITOR
         [CustomEditor(typeof(BuilderSetting))]
@@ -41,18 +44,40 @@ namespace CI
 
             public override void OnInspectorGUI()
             {
-                if (GUILayout.Button("Build for CI"))
+                if (GUILayout.Button("Build with test"))
                     target.Build();
+
+                EditorGUILayout.Space();
+
+                if (GUILayout.Button("Set test log path"))
+                {
+                    string selectPath = EditorUtility.SaveFolderPanel("Choose Location of Test Log Path", "", "");
+                    if (selectPath.Length == 0)
+                    {
+                        return;
+                    }
+                    target.testLogPath = selectPath;
+
+                }
+
+                if (GUILayout.Button("Set build log path"))
+                {
+                    string selectPath = EditorUtility.SaveFolderPanel("Choose Location of Build Log Path", "", "");
+                    if (selectPath.Length == 0)
+                    {
+                        return;
+                    }
+                    target.buildLogPath = selectPath;
+                }
 
                 base.OnInspectorGUI();
             }
         }
 #endif
-        [MenuItem("CI/BuildWithTest")]
         public void Build()
         {
             preResources = new PreResources(resources);
-            Builder.Test();
+            Builder.TestBeforeBuild();
         }
     }
 

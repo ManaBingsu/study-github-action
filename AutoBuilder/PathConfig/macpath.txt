@@ -1,0 +1,2 @@
+BUILDPATH$$C:\Users\SouthPAW Games\Desktop\hyunseok\Project\EdgeOfChristmas_Refactoring\Build\mac\MAC.app
+LOGPATH$$C:\Users\SouthPAW Games\Desktop\hyunseok\Project\EdgeOfChristmas_Refactoring\Build\mac\MAC.log

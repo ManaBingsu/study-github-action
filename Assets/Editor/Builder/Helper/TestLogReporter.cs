@@ -17,6 +17,13 @@ namespace CI
     [InitializeOnLoad]
     public static class TestLogReporter
     {
+        static string[] testMode = new string[]
+        {
+            "None",
+            "PlayMode",
+            "EditMode"
+        };
+
         static TestRunnerApi api;
 
         static TestLogReporter()
@@ -33,7 +40,7 @@ namespace CI
 
         public static void SetupListeners(TestRunnerApi api)
         {
-            api.RegisterCallbacks(new MyCallbacks());
+            api.RegisterCallbacks(new TestCallbacks());
         }
         
         public static void ExecuteTest(TestRunnerApi api, Filter filter)
@@ -41,7 +48,7 @@ namespace CI
             api.Execute(new ExecutionSettings(filter));
         }
 
-        private class MyCallbacks : ICallbacks
+        private class TestCallbacks : ICallbacks
         {
             StringBuilder log;
 
@@ -56,9 +63,9 @@ namespace CI
                 if (result.FailCount > 0)
                 {
                     Debug.LogError($"Failed test count : {result.FailCount}");
+                    System.IO.File.WriteAllText($@"{Builder.builderSetting.testLogPath}/{testMode[Builder.TestFlag]}test.log", log.ToString(), Encoding.UTF8);
                     if (Builder.TestFlag > 1 && Builder.builderSetting.postTestOption == BuilderSetting.PostTestOption.CancelBuildWhenFailed)
                     {
-                        Debug.Log(log.ToString());
                         Debug.LogError("Build canceled");
                         return;
                     }
@@ -79,7 +86,8 @@ namespace CI
             {
                 if (!result.HasChildren && result.ResultState.Equals("Failed"))
                 {
-                    log.Append(string.Format("Test {0} {1}", result.Test.Name, result.ResultState));
+                    log.Append(
+                        $"[{result.Test.Name}] : {result.ResultState}\n{result.Message}\n");             
                 }
             }
 
@@ -89,6 +97,11 @@ namespace CI
                 sb.Append($"Build failed: {msg}\n");
                 sb.Append($"complete time: {DateTime.Now}\n");
                 System.IO.File.WriteAllText(buildInfo.logPath, textValue, Encoding.UTF8);*/
+            }
+
+            private string WrapLog()
+            {
+                return "";
             }
         }
     }

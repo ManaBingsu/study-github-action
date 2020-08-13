@@ -75,7 +75,7 @@ MonoBehaviour:
   m_MinSize: {x: 276, y: 192}
   m_MaxSize: {x: 4001, y: 8042}
   vertical: 1
-  controlID: 166
+  controlID: 190
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -123,10 +123,10 @@ MonoBehaviour:
     y: 499
     width: 1215
     height: 448
-  m_MinSize: {x: 333, y: 271}
-  m_MaxSize: {x: 14003, y: 10021}
+  m_MinSize: {x: 331, y: 271}
+  m_MaxSize: {x: 14001, y: 10021}
   vertical: 0
-  controlID: 87
+  controlID: 62
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -201,9 +201,9 @@ MonoBehaviour:
     width: 1920
     height: 947
   m_MinSize: {x: 881, y: 492}
-  m_MaxSize: {x: 18004, y: 14042}
+  m_MaxSize: {x: 18002, y: 14042}
   vertical: 0
-  controlID: 165
+  controlID: 142
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -345,9 +345,9 @@ MonoBehaviour:
     width: 1215
     height: 947
   m_MinSize: {x: 605, y: 492}
-  m_MaxSize: {x: 14003, y: 14042}
+  m_MaxSize: {x: 14001, y: 14042}
   vertical: 1
-  controlID: 15
+  controlID: 143
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -373,7 +373,7 @@ MonoBehaviour:
   m_MinSize: {x: 605, y: 221}
   m_MaxSize: {x: 12005, y: 4021}
   vertical: 0
-  controlID: 16
+  controlID: 144
 --- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -393,8 +393,8 @@ MonoBehaviour:
     y: 0
     width: 375
     height: 499
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 23}
   m_Panes:
   - {fileID: 23}
@@ -473,7 +473,7 @@ MonoBehaviour:
       name: study_github_action
       fullName: study_github_action
       resultStatus: 2
-      duration: 0.0550702
+      duration: 0.0545192
       messages: One or more child tests had errors
       output: 
       stacktrace: 
@@ -489,7 +489,7 @@ MonoBehaviour:
       name: PlayModeTest.dll
       fullName: C:/Users/SouthPAW Games/Desktop/hyunseok/Project/study-github-action/Library/ScriptAssemblies/PlayModeTest.dll
       resultStatus: 2
-      duration: 0.072876
+      duration: 0.0665894
       messages: One or more child tests had errors
       output: 
       stacktrace: 
@@ -505,7 +505,7 @@ MonoBehaviour:
       name: Tests
       fullName: Tests
       resultStatus: 2
-      duration: 0.0627807
+      duration: 0.0550428
       messages: One or more child tests had errors
       output: 
       stacktrace: 
@@ -521,7 +521,7 @@ MonoBehaviour:
       name: PlayModeTestEx
       fullName: Tests.PlayModeTestEx
       resultStatus: 2
-      duration: 0.0535491
+      duration: 0.0456186
       messages: One or more child tests had errors
       output: 
       stacktrace: 
@@ -537,7 +537,7 @@ MonoBehaviour:
       name: PlayModeFailTest
       fullName: Tests.PlayModeTestEx.PlayModeFailTest
       resultStatus: 2
-      duration: 0.0231124
+      duration: 0.0194305
       messages: "  Expected: 0\r\n  But was:  1\r\n"
       output: 
       stacktrace: 'at Tests.PlayModeTestEx.PlayModeFailTest () [0x00001] in C:\Users\SouthPAW
@@ -557,7 +557,7 @@ MonoBehaviour:
       name: PlayModeFailTest2
       fullName: Tests.PlayModeTestEx.PlayModeFailTest2
       resultStatus: 2
-      duration: 0.0008474
+      duration: 0.0008038
       messages: "  Expected: 0\r\n  But was:  1\r\n"
       output: 
       stacktrace: 'at Tests.PlayModeTestEx.PlayModeFailTest2 () [0x00001] in C:\Users\SouthPAW
@@ -577,7 +577,7 @@ MonoBehaviour:
       name: PlayModeSucceedTest
       fullName: Tests.PlayModeTestEx.PlayModeSucceedTest
       resultStatus: 1
-      duration: 0.0023544
+      duration: 0.0022094
       messages: 
       output: 
       stacktrace: 
@@ -842,9 +842,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: b0330000
-    m_LastClickedID: 13232
-    m_ExpandedIDs: 00000000aa330000ac330000b033000000ca9a3b
+    m_SelectedIDs: bc330000
+    m_LastClickedID: 13244
+    m_ExpandedIDs: 00000000b4330000b633000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -872,7 +872,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000aa330000ac330000
+    m_ExpandedIDs: 00000000b4330000b6330000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -903,15 +903,15 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c62300009cb0000062ad000080e900003cba0000861af4ff524a000040340000a23d0000c6dcffff8ed2ffff96b1ffff4882ffff0e4affffbeeaffff363400009ce3ffff18f8ffff84f9ffff18f5ffffdcedfffffedaffffa0deffff923400002cf5ffffc0edffff
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Helper
-      m_OriginalName: Helper
+      m_Name: BuilderSetting
+      m_OriginalName: BuilderSetting
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 13246
+      m_UserData: 11412
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -995,9 +995,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: bc330000
+      m_SelectedIDs: c8330000
       m_LastClickedID: 0
-      m_ExpandedIDs: 6879ffff7479ffff9079ffff227affffd67bfffff27bffff987cffffbe7cffffca7cffffe67cffff727dffffc27dffffde7dffff847effffaa7effffb67effffd27effff647fffffb87fffffc47fffffe07fffff7280ffffa080ffffbc80ffff5681ffff9e81ffff4082ffff8c82ffff9882ffffb482ffff4083ffffa883ffffc483ffff6a84ffff9084ffff9c84ffffb884ffff4a85ffff1086ffff1c86ffff3886ffffca86fffffe87ffff0a88ffff2688ffffb088ffff6e89ffff7a89ffff9689ffff208affff648affff708affff8c8affff108bffff708bffff8c8bffff328cffff588cffff648cffff808cffff0a8dffffe68dfffff28dffff0e8effff988effff1c8fffff288fffff448fffffce8fffff7a90ffff8690ffffa290ffff2c91fffff291fffffe91ffff1a92ffffa492ffff7293ffff7e93ffff9a93ffff2494ffffe094ffffec94ffff0895ffff9295ffff2e96ffff3a96ffff5696ffffe096ffffec97fffff897ffff1498ffff9e98ffff5a99ffff6699ffff8299ffff0c9affff609affff6c9affff889affff129bffffae9bffffba9bffffd69bffff609cffff149dffff209dffff3c9dffffc69dffff769effff829effff9e9effff289fffffdc9fffffe89fffff04a0ffff8ea0ffff4aa1ffff56a1ffff72a1fffffca1ffffa8a2ffffb4a2ffffd0a2ffff5aa3ffffaea3ffffbaa3ffffd6a3ffff60a4ffffc4a4ffffd0a4ffffeca4ffff76a5ffff2aa6ffff36a6ffff52a6ffffdca6ffff30a7ffff3ca7ffff58a7ffffe2a7ffff94a8ffffb0a8ffffb6a8ffff10a9ffff58a9ffff74a9ffff1eaaffff4aabffff56abffff72abfffff6abffff22acffff3eacffffe8acffff52adffff5eadffff7aadfffffeadffff2aaeffff46aefffff0aeffff3aafffff46afffff62afffffe6afffff12b0ffff2eb0ffffd8b0ffff82b1ffff8eb1ffffaab1ffff2eb2ffff5ab2ffff76b2ffff20b3ffff36b4ffff54b4ffff60b4ffff7cb4ffff00b5ffff2cb5ffff48b5fffff2b5ffff64b6ffff70b6ffff8cb6ffff10b7ffff3cb7ffff58b7ffff02b8ffffccb8ffffd8b8fffff4b8ffff78b9ffffa4b9ffffc0b9ffff6abafffff6bbffff02bcffff1ebcffffa2bcffffcebcffffeabcffff94bdfffff2bdfffffebdffff1abeffff9ebeffffcabeffffe6beffff90bffffff2bffffffebfffff1ac0ffff9ec0ffffcac0ffffe6c0ffff90c1ffff32c2ffff3ec2ffff5ac2ffffdec2ffff0ac3ffff26c3ffffd0c3fffff4c4ffff00c5ffff1cc5ffffa0c5ffffccc5ffffe8c5ffff92c6ffff44c7ffff50c7ffff6cc7fffff0c7ffff1cc8ffff38c8ffffe2c8ffff04caffff10caffff2ccaffffb0caffffdccafffff8caffffa2cbffff46ceffff52ceffff6ecefffff8ceffffa4cfffffb0cfffffcccfffff56d0ffff12d1ffff1ed1ffff3ad1ffffc4d1ffff78d2ffff84d2ffffa0d2ffff2ad3ffffded3ffffead3ffff06d4ffff8ed4ffff42d5ffff4ed5ffff6ad5fffff4d5ffffb8d6ffffc4d6ffffe0d6ffff6ad7ffff0ed8ffff1ad8ffff36d8ffffc0d8fffffed8ffff1ad9ffffa4d9ffff4cdaffff58daffff74dafffffedaffff9adbffffa6dbffffc2dbffff4cdcffffe8dcfffff4dcffff10ddffff9addffff3edeffff4adeffff66defffff0deffffbcdfffffc8dfffffe4dfffff6ee0ffff1ae1ffff26e1ffff42e1ffffcce1ffff78e2ffff84e2ffffa0e2ffff2ae3ffffd6e3ffffe2e3fffffee3ffff88e4ffff9ee5ffffaae5ffffc6e5ffff50e6ffff16e7ffff22e7ffff3ee7ffffc8e7ffff1ceaffff28eaffff44eaffffceeaffff82ebffff8eebffffaaebffff34ecffffc8ecffffd4ecfffff0ecffff7aedffff28eeffff34eeffff50eeffffdaeeffff8eefffff9aefffffb6efffff40f0ffffa4f0ffffb0f0ffffccf0ffff56f1ffff12f2ffff2ef2ffffd8f2ffff14f4ffff20f4ffff3cf4ffffc0f4ffffecf4ffff08f5ffffb2f5ffff22f8ffff8ef8ffff9af8ffffb6f8ffff40f9ffff6cf9ffff88f9ffff32faffff6afbffff
+      m_ExpandedIDs: 06f2ffff12f2ffff2ef2ffffc0f2ffff74f3ffff80f3ffff9cf3ffff2ef4ffff42f5ffff4ef5ffff6af5fffffcf5ffff00f7ffff0cf7ffff28f7ffffbaf7ffff7ef8ffff8af8ffffa6f8ffff3ef9ffff6afbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
